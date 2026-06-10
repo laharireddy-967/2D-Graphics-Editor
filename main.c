@@ -69,12 +69,17 @@ void drawLine(int x1,int y1,int x2,int y2)
         y += yInc;
     }
 }
+void drawTriangle(int x1,int y1,int x2,int y2,int x3,int y3)
+{
+    drawLine(x1,y1,x2,y2);
+    drawLine(x2,y2,x3,y3);
+    drawLine(x3,y3,x1,y1);
+}
 
 int main()
 {
     initializeCanvas();
-   
-    drawLine(0,0,39,19);
+   drawTriangle(5,5,20,5,12,15);
     displayCanvas();
 
     return 0;
