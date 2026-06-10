@@ -96,7 +96,15 @@ void drawCircle(int cx,int cy,int radius)
 int main()
 {
     initializeCanvas();
-   drawCircle(20,10,5);
+
+    drawRectangle(2,2,10,5);
+
+    drawLine(0,0,20,10);
+
+    drawTriangle(20,2,35,2,28,12);
+
+    drawCircle(30,15,4);
+
     displayCanvas();
 
     return 0;
