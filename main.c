@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 #define ROWS 20
 #define COLS 40
@@ -42,7 +44,6 @@ void drawRectangle(int x,int y,int width,int height)
     }
 }
 
-#include <stdlib.h>
 
 void drawLine(int x1,int y1,int x2,int y2)
 {
@@ -75,11 +76,27 @@ void drawTriangle(int x1,int y1,int x2,int y2,int x3,int y3)
     drawLine(x2,y2,x3,y3);
     drawLine(x3,y3,x1,y1);
 }
+void drawCircle(int cx,int cy,int radius)
+{
+    for(int angle=0; angle<360; angle++)
+    {
+        double rad = angle * 3.14159 / 180.0;
+
+        int x = cx + radius * cos(rad);
+        int y = cy + radius * sin(rad);
+
+        if(x >= 0 && x < COLS &&
+           y >= 0 && y < ROWS)
+        {
+            canvas[y][x] = '*';
+        }
+    }
+}
 
 int main()
 {
     initializeCanvas();
-   drawTriangle(5,5,20,5,12,15);
+   drawCircle(20,10,5);
     displayCanvas();
 
     return 0;
